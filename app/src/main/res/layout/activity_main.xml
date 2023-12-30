@@ -51,17 +51,31 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/cityNameEditText"
+
+                <com.google.android.material.textfield.TextInputLayout
+
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="10"
                     android:hint="@string/city_name"
-                    android:inputType="text"
-                    android:lines="1"
-                    android:textSize="22sp"
-                    android:autofillHints="" />
+                    android:maxLines="1"
 
+                    app:startIconDrawable="@drawable/baseline_location_on_24"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cityNameEditText"
+                        android:maxLines="1"
+                        android:minLines="1"
+                        android:textSize="22sp"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
                 <ImageView
                     android:id="@+id/citySearchImageView"
                     android:layout_width="0dp"
