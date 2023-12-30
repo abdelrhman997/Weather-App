@@ -41,7 +41,6 @@ class MainActivityViewModel : ViewModel() {
         catch (E:Exception){
             weatherErrorMessage.postValue(true)
             weatherProgressBar.postValue(false)
-            println("HATA!!!!!!!")
         }
     }
 

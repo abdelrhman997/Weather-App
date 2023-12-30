@@ -13,20 +13,17 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import android.R
 import com.example.weatherapp.databinding.ActivityMainBinding
+import com.example.weatherapp.utils.Constants.decimalFormat
+import com.example.weatherapp.utils.Constants.decimalFormatDegree
 import com.google.android.material.snackbar.Snackbar
 import com.example.weatherapp.viewmodel.MainActivityViewModel
-import java.text.DecimalFormat
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var weatherViewModel : MainActivityViewModel
-
     private lateinit var sharedPreferences : SharedPreferences
     private lateinit var sharedPreferencesEditor : SharedPreferences.Editor
-
-    private var decimalFormat = DecimalFormat("###.####")
-    private var decimalFormatDegree = DecimalFormat("##.#")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -34,18 +31,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         sharedPreferences = this.getSharedPreferences(packageName, MODE_PRIVATE)
         sharedPreferencesEditor = sharedPreferences.edit()
-
-
-
-        if (internet_connection()) {
-
+        if (internetConnection()) {
             weatherViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-
             val cName = sharedPreferences.getString("cityName","cairo")
             binding.cityNameEditText.setText(cName)
-
             weatherViewModel.refreshData(cName!!)
-
             obserLiveData()
 
             binding.swipeRefreshLayout.setOnRefreshListener {
@@ -132,7 +122,7 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
-    private fun internet_connection(): Boolean {
+    private fun internetConnection(): Boolean {
         //Check if connected to internet, output accordingly
         val cm =
             this.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
