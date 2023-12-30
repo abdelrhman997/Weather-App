@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Weather App</string>
+    <string name="try_again">Reconnect</string>
+    <string name="error_msg">Error! Try Again.</string>
+    <string name="city_name">City Name</string>
+    <string name="_27c">27C</string>
+    <string name="country_code">Country Code</string>
+    <string name="humidity">Humidity</string>
+    <string name="speed">Speed</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="data">data</string>
+
+</resources>
